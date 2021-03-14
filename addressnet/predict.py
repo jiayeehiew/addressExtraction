@@ -138,23 +138,23 @@ def predict(address: List[str], model_dir: str = None) -> List[Dict[str, str]]:
     result = address_net_estimator.predict(predict_input_fn(address))
     class_names = [l.replace("_code", "") for l in labels_list]
     class_names = [l.replace("_abbreviation", "") for l in class_names]
-    for addr, res in zip(address, result):
-        mappings = dict()
-        for char, class_id in zip(addr.upper(), res['class_ids']):
-            if class_id == 0:
-                continue
-            cls = class_names[class_id - 1]
-            mappings[cls] = mappings.get(cls, "") + char
+#    for addr, res in zip(address, result):
+#        mappings = dict()
+#        for char, class_id in zip(addr.upper(), res['class_ids']):
+#            if class_id == 0:
+#                continue
+#            cls = class_names[class_id - 1]
+#            mappings[cls] = mappings.get(cls, "") + char
+#
+#        if 'state' in mappings:
+#            mappings['state'] = normalise_state(mappings['state'])
+#        if 'street_type' in mappings:
+#            mappings['street_type'] = normalise_street_type(mappings['street_type'])
+#        if 'street_suffix' in mappings:
+#            mappings['street_suffix'] = normalise_street_suffix(mappings['street_suffix'])
+#        if 'flat_type' in mappings:
+#            mappings['flat_type'] = normalise_flat_type(mappings['flat_type'])
+#        if 'level_type' in mappings:
+#            mappings['level_type'] = normalise_level_type(mappings['level_type'])
 
-        if 'state' in mappings:
-            mappings['state'] = normalise_state(mappings['state'])
-        if 'street_type' in mappings:
-            mappings['street_type'] = normalise_street_type(mappings['street_type'])
-        if 'street_suffix' in mappings:
-            mappings['street_suffix'] = normalise_street_suffix(mappings['street_suffix'])
-        if 'flat_type' in mappings:
-            mappings['flat_type'] = normalise_flat_type(mappings['flat_type'])
-        if 'level_type' in mappings:
-            mappings['level_type'] = normalise_level_type(mappings['level_type'])
-
-        yield mappings
+#        yield mappings
