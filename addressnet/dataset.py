@@ -12,56 +12,13 @@ from addressnet.typo import generate_typo
 # Schema used to decode data from the TFRecord file
 _features = OrderedDict([
     ('building_name', tf.io.FixedLenFeature([], tf.string)),
-    ('lot_number_prefix', tf.io.FixedLenFeature([], tf.string)),
-    ('lot_number', tf.io.FixedLenFeature([], tf.string)),
-    ('lot_number_suffix', tf.io.FixedLenFeature([], tf.string)),
-    ('flat_number_prefix', tf.io.FixedLenFeature([], tf.string)),
-    ('flat_number_suffix', tf.io.FixedLenFeature([], tf.string)),
-    ('level_number_prefix', tf.io.FixedLenFeature([], tf.string)),
-    ('level_number_suffix', tf.io.FixedLenFeature([], tf.string)),
-    ('number_first_prefix', tf.io.FixedLenFeature([], tf.string)),
-    ('number_first_suffix', tf.io.FixedLenFeature([], tf.string)),
-    ('number_last_prefix', tf.io.FixedLenFeature([], tf.string)),
-    ('number_last_suffix', tf.io.FixedLenFeature([], tf.string)),
     ('street_name', tf.io.FixedLenFeature([], tf.string)),
-    ('locality_name', tf.io.FixedLenFeature([], tf.string)),
-    ('postcode', tf.io.FixedLenFeature([], tf.string)),
-    ('flat_number', tf.io.FixedLenFeature([], tf.int64)),
-    ('level_number', tf.io.FixedLenFeature([], tf.int64)),
-    ('number_first', tf.io.FixedLenFeature([], tf.int64)),
-    ('number_last', tf.io.FixedLenFeature([], tf.int64)),
-    ('flat_type', tf.io.FixedLenFeature([], tf.int64)),
-    ('level_type', tf.io.FixedLenFeature([], tf.int64)),
-    ('street_type_code', tf.io.FixedLenFeature([], tf.int64)),
-    ('street_suffix_code', tf.io.FixedLenFeature([], tf.int64)),
-    ('state_abbreviation', tf.io.FixedLenFeature([], tf.int64)),
-    ('latitude', tf.io.FixedLenFeature([], tf.float32)),
-    ('longitude', tf.io.FixedLenFeature([], tf.float32))
 ])
 
 # List of fields used as labels in the training data
 labels_list = [
     'building_name',  # 1
-    'level_number_prefix',  # 2
-    'level_number',  # 3
-    'level_number_suffix',  # 4
-    'level_type',  # 5
-    'flat_number_prefix',  # 6
-    'flat_number',  # 7
-    'flat_number_suffix',  # 8
-    'flat_type',  # 9
-    'number_first_prefix',  # 10
-    'number_first',  # 11
-    'number_first_suffix',  # 12
-    'number_last_prefix',  # 13
-    'number_last',  # 14
-    'number_last_suffix',  # 15
-    'street_name',  # 16
-    'street_suffix_code',  # 17
-    'street_type_code',  # 18
-    'locality_name',  # 19
-    'state_abbreviation',  # 20
-    'postcode'  # 21
+    'street_name',  # 2
 ]
 # Number of labels in total (+1 for the blank category)
 n_labels = len(labels_list) + 1
